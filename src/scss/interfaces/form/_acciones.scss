@@ -1,0 +1,12 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    
+    &__links {
+        color: v.$negro;
+    }
+}

@@ -46,3 +46,41 @@
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
 }
+
+@mixin contenedor() {
+    width: min(95%, 140rem);
+    margin: 0 auto;
+}
+
+@mixin contenedor-sm() {
+    width: min(95%, 60rem);
+    margin: 0 auto;
+}
+
+@mixin headings {
+    font-family: v.$fuente_principal;
+    font-weight: v.$black;
+    margin: 2rem 0;
+}
+
+@mixin nombre-pagina {
+    @include headings;
+    margin: 6rem 0 3rem 0;
+    text-align: center;
+}
+
+@mixin texto-fluido($minimo, $maximo) {
+    font-size: clamp($minimo, 10vw , $maximo);
+}
+
+@mixin texto-degradado($inicio, $final) {
+    background: linear-gradient(to right, $inicio, $final);
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin logo {
+    color: v.$blanco;
+    text-align: left;
+    margin: 0;
+}

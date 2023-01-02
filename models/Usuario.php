@@ -6,6 +6,18 @@ class Usuario extends ActiveRecord {
     protected static $tabla = 'usuarios';
     protected static $columnasDB = ['id', 'nombre', 'apellido', 'email', 'password', 'confirmado', 'token', 'admin'];
     
+    public $id;
+    public $nombre;
+    public $apellido;
+    public $email;
+    public $password;
+    public $password2;
+    public $confirmado;
+    public $token;
+    public $admin;
+    public $password_actual;
+    public $password_nuevo;
+
     public function __construct($args = [])
     {
         $this->id = $args['id'] ?? null;
@@ -17,6 +29,7 @@ class Usuario extends ActiveRecord {
         $this->confirmado = $args['confirmado'] ?? 0;
         $this->token = $args['token'] ?? '';
         $this->admin = $args['admin'] ?? '';
+        $this->password_actual = $args['password_actual'] ?? '';
     }
 
     // Validar el Login de Usuarios

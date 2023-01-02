@@ -101,7 +101,7 @@ class AuthController {
         }
 
         // Render a la vista
-        $router->render('auth/registro', [
+        $router->render('auth/register', [
             'titulo' => 'Crea tu cuenta en DevWebcamp',
             'usuario' => $usuario, 
             'alertas' => $alertas
@@ -147,7 +147,7 @@ class AuthController {
         }
 
         // Muestra la vista
-        $router->render('auth/olvide', [
+        $router->render('auth/forgot', [
             'titulo' => 'Olvide mi Password',
             'alertas' => $alertas
         ]);

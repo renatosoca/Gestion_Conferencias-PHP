@@ -1,0 +1,37 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.barra {
+    background-color: v.$azul;
+
+    &__contenido {
+        @include m.contenedor;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .nav {
+            display: flex;
+            gap: 1.5rem;
+
+            &__link {
+                font-size: 2rem;
+                text-transform: uppercase;
+                color: v.$blanco;
+                font-weight: v.$bold;
+                padding: 1.5rem;
+                text-align: center;
+
+                &:hover{
+                    background-color: v.$blanco;
+                    color: v.$azul;
+                }
+            }
+        }
+    }
+
+    &__logo {
+        @include m.logo;
+        @include m.texto-fluido(2rem, 3rem);
+    }
+}
