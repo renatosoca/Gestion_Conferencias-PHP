@@ -1,22 +1,24 @@
 <main class="auth">
     <h2 class="auth__heading"><?php echo $titulo; ?></h2>
-    <p class="auth__texto">Inicia sesión en Dev Web Camp</p>
+    <p class="auth__texto">Coloca tu nuevo password</p>
 
     <?php include_once __DIR__.'/../templates/alertas.php'; ?>
-
-    <form action="/olvide" class="formulario" method="POST">
+    <?php if($token_valido) { ?>
+    <form class="formulario" method="POST">
         <div class="formulario__campo">
-            <label for="email" class="formulario__label">Email</label>
+            <label for="password" class="formulario__label">Nuevo Password</label>
             <input 
-                type="email" 
-                name="email" 
-                id="email" 
+                type="password"
+                name="password"
+                id="password"
                 class="formulario__input"
-                placeholder="Tu Email">
+                placeholder="Tu Password">
         </div>
 
         <input type="submit" value="Enviar instrucciones" class="formulario__submit">
     </form>
+
+    <?php } ?>
 
     <div class="acciones">
         <a href="/login" class="acciones__links">Ya tienes una cuenta? Inicia Sesión</a>

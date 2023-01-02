@@ -21,3 +21,22 @@ img {
     width: 100%;
     height: auto;
 }
+
+.alerta{
+    padding: 1.2rem;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: v.$bold;
+    margin-top: 2rem;
+
+    &__error {
+        background-color: lighten(v.$rojo, 60);
+        border-left: .5rem solid v.$rojo;
+    }
+
+    &__exito {
+        background-color: lighten(v.$verde, 40);
+        border-left: .5rem solid v.$verde;
+    }
+}
