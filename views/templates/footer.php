@@ -1,0 +1,44 @@
+<footer class="footer">
+    <div class="footer__grid">
+        <div class="footer__contenido">
+            <h3 class="footer__logo">
+                &#60;DevWebCamp/>
+            </h3>
+
+            <p class="footer__texto">
+                DevWebCamp es una conferencia para desarrolladores de todos los niveles, se lleva a cabo de forma presencial y en linea
+            </p>
+        </div>
+
+        <nav class="redes"> 
+            <a class="redes__enlace" rel="noopener noreferrer" target="_blank" href="https://facebook.com">
+                <span class="redes__ocultar">Facebook</span>
+            </a> 
+
+            <a class="redes__enlace" rel="noopener noreferrer" target="_blank" href="https://twitter.com">
+                <span class="redes__ocultar">Twitter</span>
+            </a> 
+
+            <a class="redes__enlace" rel="noopener noreferrer" target="_blank" href="https://youtube.com">
+                <span class="redes__ocultar">YouTube</span>
+            </a> 
+
+            <a class="redes__enlace" rel="noopener noreferrer" target="_blank" href="https://instagram.com">
+                <span class="redes__ocultar">Instagram</span>
+            </a> 
+
+            <a class="redes__enlace" rel="noopener noreferrer" target="_blank" href="https://tiktok.com">
+                <span class="redes__ocultar">Tiktok</span>
+            </a> 
+
+            <a class="redes__enlace" rel="noopener noreferrer" target="_blank" href="https://github.com"">
+                <span class="redes__ocultar">GitHub</span>
+            </a>
+        </nav>
+    </div>
+
+    <p class="footer__copyrigth">
+        DevWebCamp
+        <span class="footer__copyrigth--regular"> - Todos los Derechos Reservados</span>
+    </p>
+</footer>
