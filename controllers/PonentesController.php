@@ -8,9 +8,11 @@ use Intervention\Image\ImageManagerStatic as Image;
 class PonentesController {
 
     public static function index( Router $router ) {
+        $ponentes = Ponente::all();
 
         $router->render('admin/ponentes/index', [
-            'titulo' => 'Ponentes'
+            'titulo' => 'Ponentes',
+            'ponentes' => $ponentes
         ]);
     }
 
@@ -56,6 +58,29 @@ class PonentesController {
 
         $router->render('admin/ponentes/crear', [
             'titulo' => 'Ponentes',
+            'alertas' => $alertas,
+            'ponente' => $ponente
+        ]);
+    }
+
+    public static function editar( Router $router ) {
+        $alertas = [];
+        $id = $_GET['id'];
+        $id = filter_var($id, FILTER_VALIDATE_INT);
+        if (!$id) header('Location: /admin/ponentes');
+
+        $ponente = Ponente::find($id);
+
+        if (!$ponente) header('Location: /admin/ponente');
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ponente->sincronizar();
+        }
+
+        $ponente->imagen_actual = $ponente->imagen;
+
+        $router->render('admin/ponentes/editar', [
+            'titulo' => 'Actualizar Ponente',
             'alertas' => $alertas,
             'ponente' => $ponente
         ]);
