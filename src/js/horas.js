@@ -7,13 +7,22 @@
         const inputHiddenDia = document.querySelector('[name="dia_id"]');
         const inputHiddenHora = document.querySelector('[name="hora_id"]');
         
-        let busqueda = {
-            categoria_id: '',
-            dia: ''
-        }
-
         categoria.addEventListener( 'change', terminoBusqueda );
         dias.forEach( dia =>  dia.addEventListener('change', terminoBusqueda ) );
+
+        let busqueda = {
+            categoria_id: +categoria.value || '',
+            dia: +inputHiddenDia.value || ''
+        }
+
+        if (!Object.values(busqueda).includes('')) {
+            buscarEventos();
+
+            //Resaltar la hora actual
+            const horaSeleccionada = document.querySelector(`[data-hora-id= "${inputHiddenHora.value}"]`)
+            horaSeleccionada.classList.remove('horas__hora--seleccionada');
+
+        }
 
         function terminoBusqueda(e) {
             busqueda[e.target.name] = e.target.value;
