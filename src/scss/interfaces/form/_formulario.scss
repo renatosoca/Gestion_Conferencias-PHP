@@ -49,7 +49,8 @@
         color: rgba(v.$negro, .8);
     }
 
-    &__input{
+    &__input,
+    &__select{
         border: .1rem solid darken(v.$gris-claro, 20);
         padding: 1rem;
         border-radius: .5rem;
@@ -67,6 +68,12 @@
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
         }
+    }
+
+    &__radio {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
     }
 
     &__listado {

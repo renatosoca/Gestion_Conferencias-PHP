@@ -16,20 +16,18 @@ class PonentesController {
 
         if (!$pagina_actual || $pagina_actual < 1) header('Location: /admin/ponentes?page=1');
 
-        $registros_por_pagina = 5;
+        $registros_por_pagina = 10;
         $total = Ponente::total();
         $paginacion = new Paginacion($pagina_actual, $registros_por_pagina, $total);
 
-        if($paginacion->total_paginas() < $pagina_actual) {
-            header('Location: /admin/ponentes?page=1');
-        }
+        if($paginacion->total_paginas() < $pagina_actual) header('Location: /admin/ponentes?page=1');
 
         $ponentes = Ponente::paginar($registros_por_pagina, $paginacion->offset());
 
         $router->render('admin/ponentes/index', [
             'titulo' => 'Ponentes',
             'ponentes' => $ponentes,
-            'paginacion' => $paginacion
+            'paginacion' => $paginacion->paginacion()
         ]);
     }
 
@@ -49,7 +47,7 @@ class PonentesController {
                 $imagen_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800,800)->encode('png', 80);
                 $imagen_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800,800)->encode('webp', 80);
 
-                $nombre_imagen = md5( uniqid( rand(), true) );
+                $nombre_imagen = md5( uniqid() );
 
                 $_POST['imagen'] = $nombre_imagen;
             }
@@ -101,7 +99,7 @@ class PonentesController {
                 $imagen_png = Image::make($_FILES['imagen']['tmp_name'])->fit(800,800)->encode('png', 80);
                 $imagen_webp = Image::make($_FILES['imagen']['tmp_name'])->fit(800,800)->encode('webp', 80);
 
-                $nombre_imagen = md5( uniqid( rand(), true) );
+                $nombre_imagen = md5( uniqid() );
 
                 $_POST['imagen'] = $nombre_imagen;
             } else {

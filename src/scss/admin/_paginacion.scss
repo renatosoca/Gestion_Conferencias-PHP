@@ -9,7 +9,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     @include m.tablet {
         justify-content: flex-end;
     }

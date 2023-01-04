@@ -14,11 +14,13 @@ class Paginacion {
         $this->total_registros = (int) $total_registros;
     }
 
+    //Registros a mostrar en la tabla
     public function offset() {
         return $this->registros_por_pagina * ($this->pagina_actual - 1);
     }
 
     public function total_paginas() {
+        //Redondea a numero entero, hacia arriba
         $total = ceil($this->total_registros / $this->registros_por_pagina);
         $total == 0 ? $total = 1 : $total = $total;
         return $total;
