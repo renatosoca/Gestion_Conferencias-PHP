@@ -29,6 +29,16 @@
         }
     }
 
+    &__form{
+        display: flex
+    }
+
+    &__submit {
+        @extend .header__link;
+        background-color: unset;
+        border: none;
+    }
+
     &__contenido {
         padding-top: 5rem;
     }

@@ -1,1 +1,6 @@
 @forward 'auth';
+@forward '404';
+@forward 'conferencias';
+@forward 'eventos';
+@forward 'paquetes';
+@forward 'inicio';

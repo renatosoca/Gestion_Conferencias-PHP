@@ -10,14 +10,39 @@
         obtenerPonentes()
 
         ponentesInput.addEventListener('input', buscarPonentes)
-        async function obtenerPonentes() {
+        if (ponenteHidden.value) {
+            (async () => {
+                const ponente = await obtenerPonente(ponenteHidden.value);
+                
+                const {nombre, apellido} = ponente;
 
+                const ponenteLi = document.createElement('li');
+                ponenteLi.classList.add('listado-ponentes__ponente', 'listado-ponentes__ponente--seleccionado');
+                ponenteLi.textContent = `${nombre} ${apellido}`;
+
+                listadoPonentes.appendChild(ponenteLi);
+            })();
+        }
+
+        async function obtenerPonentes() {
             try {
                 const url = `/api/ponentes`;
                 const respuesta = await fetch(url);
                 const resultado = await respuesta.json();
                 
                 formatearPonentes(resultado);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function obtenerPonente(id) {
+            try {
+                const url = `/api/ponente?id=${id}`;
+                const respuesta = await fetch(url);
+                const resultado = await respuesta.json();
+                
+                return resultado;
             } catch (error) {
                 console.log(error);
             }

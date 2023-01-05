@@ -15,13 +15,18 @@
             dia: +inputHiddenDia.value || ''
         }
 
+        //Para seleccionar la hora cuando esté venga de editar
         if (!Object.values(busqueda).includes('')) {
-            buscarEventos();
+            (async () => {
+                await buscarEventos();
 
-            //Resaltar la hora actual
-            const horaSeleccionada = document.querySelector(`[data-hora-id= "${inputHiddenHora.value}"]`)
-            horaSeleccionada.classList.remove('horas__hora--seleccionada');
+                //Resaltar la hora actual
+                const horaSeleccionada = document.querySelector(`[data-hora-id= "${inputHiddenHora.value}"]`)
+                horaSeleccionada.classList.remove('horas__hora--deshabilitada');
+                horaSeleccionada.classList.add('horas__hora--seleccionada');
 
+                horaSeleccionada.onclick = seleccionarHora;
+            })();
         }
 
         function terminoBusqueda(e) {

@@ -8,6 +8,7 @@ use MVC\Router;
 use Controllers\AuthController;
 use Controllers\DashboardController;
 use Controllers\EventosController;
+use Controllers\PaginasController;
 use Controllers\PonentesController;
 use Controllers\RegalosController;
 use Controllers\RegistradosController;
@@ -50,10 +51,17 @@ $router->post('/admin/eventos/eliminar', [EventosController::class, 'eliminar'])
 
 $router->get('/api/eventos-horarios', [APIEventos::class, 'index']);
 $router->get('/api/ponentes', [APIPonentes::class, 'index']);
+$router->get('/api/ponente', [APIPonentes::class, 'ponente']);
 
 $router->get('/admin/registrados', [RegistradosController::class, 'index']);
 
 $router->get('/admin/regalos', [RegalosController::class, 'index']);
 
+
+//Paginas Publicas
+$router->get('/', [PaginasController::class, 'index']);
+$router->get('/eventos', [PaginasController::class, 'eventos']);
+$router->get('/paquetes', [PaginasController::class, 'paquetes']);
+$router->get('/conferencias', [PaginasController::class, 'conferencias']);
 
 $router->comprobarRutas();
