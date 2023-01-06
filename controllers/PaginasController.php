@@ -32,11 +32,20 @@ class PaginasController {
             if ($evento->dia_id === '2' && $evento->categoria_id === '2') {
                 $eventos_formateador['workshops_m'][] = $evento;
             }
+
+            $ponentes = Ponente::all();
+            $ponentes_total = Ponente::total();
+            $conferencias = Evento::total('categoria_id', 1);
+            $workshops = Evento::total('categoria_id', 2);
         }
 
         $router->render('paginas/index', [
             'titulo' => 'Inicio',
-            'eventos' => $eventos_formateador
+            'eventos' => $eventos_formateador,
+            'ponentes_total' => $ponentes_total,
+            'conferencias_total' => $conferencias,
+            'workshops_total' => $workshops,
+            'ponentes' => $ponentes
         ]);
     }
 
@@ -82,6 +91,13 @@ class PaginasController {
         $router->render('paginas/conferencias', [
             'titulo' => 'Conferencias & Workshops',
             'eventos' => $eventos_formateador
+        ]);
+    }
+
+    public static function error( Router $router ) {
+
+        $router->render('paginas/error', [
+            'titulo' => 'Pagina no Encontrada'
         ]);
     }
 }

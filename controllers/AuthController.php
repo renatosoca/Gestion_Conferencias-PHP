@@ -92,12 +92,11 @@ class AuthController {
                     $usuario->crearToken();
 
                     // Crear un nuevo usuario
-                    $resultado =  $usuario->guardar();
+                    $usuario->guardar();
 
                     // Enviar email
                     $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
-                    $email->enviarConfirmacion();
-                    
+                    $resultado = $email->enviarConfirmacion();
 
                     if($resultado) {
                         header('Location: /mensaje');
@@ -136,8 +135,7 @@ class AuthController {
 
                     // Enviar el email
                     $email = new Email( $usuario->email, $usuario->nombre, $usuario->token );
-                    $email->enviarInstrucciones();
-
+                    $resultado = $email->enviarInstrucciones();
 
                     // Imprimir la alerta
                     // Usuario::setAlerta('exito', 'Hemos enviado las instrucciones a tu email');
