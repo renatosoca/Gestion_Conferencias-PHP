@@ -1,19 +1,19 @@
 <?php 
 
-require_once __DIR__ . '/../includes/app.php';
+require_once __DIR__ . '/../app/core/main.php';
 
-use Controllers\APIEventos;
-use Controllers\APIPonentes;
-use Controllers\APIRegalos;
-use MVC\Router;
-use Controllers\AuthController;
-use Controllers\DashboardController;
-use Controllers\EventosController;
-use Controllers\PaginasController;
-use Controllers\PonentesController;
-use Controllers\RegalosController;
-use Controllers\RegistradosController;
-use Controllers\RegistroController;
+use App\Router;
+use App\Controllers\APIEventos;
+use App\Controllers\APIRegalos;
+use App\Controllers\APIPonentes;
+use App\Controllers\AuthController;
+use App\Controllers\EventosController;
+use App\Controllers\PaginasController;
+use App\Controllers\RegalosController;
+use App\Controllers\PonentesController;
+use App\Controllers\RegistroController;
+use App\Controllers\DashboardController;
+use App\Controllers\RegistradosController;
 
 $router = new Router();
 
